@@ -18,24 +18,21 @@ function readingList(books) {
     list.style.padding = "10px";
     list.style.margin = "15px";
     list.style.width = "25%";
+
+    if (books[i].alreadyRead === true) list.style.backgroundColor = "green";
+    else list.style.backgroundColor = "red";
+
+    let bookP = document.createElement("p");
+    bookP.innerHTML = `${books[i].title} - ${books[i].author}`;
+    list.appendChild(bookP);
+
+    let coverImage = document.createElement("img");
+    coverImage.src = books[i].coverImage;
+    coverImage.style.width = "60%";
+
+    list.appendChild(coverImage);
+    ul.appendChild(list);
   }
-
-  if (books[i].alreadyRead === true) {
-    list.style.backgroundColor = "green";
-  } else {
-    list.style.backgroundColor = "red";
-  }
-
-  let bookP = document.createElement("p");
-  bookP.innerHTML = `${books[i].title} - ${books[i].author}`;
-  list.appendChild(bookP);
-
-  let coverImage = document.createElement("img");
-  coverImage.src = books[i].coverImage;
-  coverImage.style.width = "60%";
-
-  list.appendChild(coverImage);
-  ul.appendChild(list);
   content.appendChild(ul);
 }
 
